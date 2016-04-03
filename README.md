@@ -1,6 +1,6 @@
 # GiftExchange
 
-HOW TO USE:
+HOW TO USE:<p/>
 1. package a jar file. mvn clean compile assembly:single
    packaged jar also available at https://github.com/tonysun-sf/GiftExchange/tree/master/src/main/resources.
 2. have a list of users ready in a text file. All user from the same family will be together, and different family will be seperated by an empty line. eg. https://github.com/tonysun-sf/GiftExchange/blob/master/src/main/resources/participants.txt.
