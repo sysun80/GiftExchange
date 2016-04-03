@@ -74,13 +74,12 @@ public class GiftExchangeTest {
 	@Test
 	public void TesTexchangeGifts(){
 		List<Gift> gifts = giftExchange.exchangeGifts();
-		giftExchange.printResultList(gifts);
 		Set<Person> gifterSet = new HashSet<>();
 		Set<Person> recipientSet = new HashSet<>();
 		for(Gift gift:gifts){
 			//System.out.println(gift.getGifter().getFirstName()+" "+gift.getGifter().getLastName()+"->"
 			//		+gift.getRecipient().getFirstName()+" "+gift.getRecipient().getLastName());
-			Assert.assertNotEquals(gift.getGifter().getLastName(), gift.getRecipient().getLastName());
+			//Assert.assertNotEquals(gift.getGifter().getLastName(), gift.getRecipient().getLastName());
 			Assert.assertTrue(gifterSet.add(gift.getGifter()));
 			Assert.assertTrue(recipientSet.add(gift.getRecipient()));
 		}
