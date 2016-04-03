@@ -2,7 +2,7 @@
 
 Usage:
 1. package a jar file eg. game.jar.
-2. have a list of participants ready in a text file. All participants from the same family will be together, and different family will be seperated by an empty line.
+2. have a list of participants ready in a text file. All participants from the same family will be together, and different family will be seperated by an empty line. eg. https://github.com/tonysun-sf/GiftExchange/blob/master/src/main/resources/participants.txt
 3. In order to send emails, it requires a gmail username and password
 4. command line arguments
 -f text file location - required
