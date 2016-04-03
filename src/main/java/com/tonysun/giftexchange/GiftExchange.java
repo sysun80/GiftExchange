@@ -80,7 +80,7 @@ public class GiftExchange {
 			}
 			
 			//start finding person2
-			int random2 = Util.generateRandomNumber(currEnd+1);
+			int random2 = Util.generateRandomNumber(Math.max(0, currEnd)+1);
 			swapPosition(persons[random2], persons[maxEnd]);
 			Person p2 = persons[maxEnd];
 			maxEnd--;
