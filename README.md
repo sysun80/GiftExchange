@@ -9,5 +9,5 @@ HOW TO USE:
 -f text file location - required
 -u gmail account username - optional
 -p gmail account password - optional
-5. run java command
+5. run java command(java 8 is recommended)
 java -jar com.tonysun.giftexchange-0.0.1-SNAPSHOT-jar-with-dependencies.jar -f /??/??/participants.txt -u ??? -p ???
