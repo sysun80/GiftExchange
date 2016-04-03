@@ -33,7 +33,7 @@ public class GiftExchange {
 		    while (line != null) {
 		        String[] person = line.split("\\s");
 		        if(person.length == 3){
-		        	Person p = new Person(personIndex, person[0], person[1], person[2]);
+		        	Person p = new Person(personIndex, familyId, person[0], person[1], person[2]);
 		        	family.getMembers().add(p);
 		        	persons[personIndex++] = p;
 		        }else{
@@ -97,6 +97,33 @@ public class GiftExchange {
 		return gifts;
 	}
 	
+	protected List<Gift> checkExchangeRule(List<Gift> gifts){
+		for(Gift gift:gifts){
+			Person p1 = gift.getGifter();
+			Person p2 = gift.getRecipient();
+			if(!allowExchange(p1, p2)){
+				for(Gift gift1:gifts){
+					if(gift != gift1){
+						if(allowExchange(gift1.getGifter(), p2) && allowExchange(gift1.getRecipient(), p1)){
+							Person temp = p2;
+							gift.setRecipient(gift1.getRecipient());
+							gift1.setRecipient(temp);
+							break;
+						}
+					}
+				}
+			}
+		}
+		return gifts;
+	}
+	
+	protected boolean allowExchange(Person p1, Person p2){
+		if(p1.getId() != p2.getId() && p1.getFamilyId() != p2.getFamilyId()){
+			return true;
+		}
+		return false;
+	}
+	
 	public void swapPosition(Person p1, Person p2){
 		if(p1.getId() != p2.getId()){
 			persons[p1.getId()] = p2;
@@ -120,7 +147,7 @@ public class GiftExchange {
 	public void startGame(){
 		init();
 		List<Gift> gifts = exchangeGifts();
-		printResultList(gifts);
+		printResultList(checkExchangeRule(gifts));
 	}
 	
 	public static void main(String[] args){

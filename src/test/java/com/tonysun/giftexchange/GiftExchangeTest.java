@@ -21,12 +21,12 @@ public class GiftExchangeTest {
 		Person[] persons = new Person[6];
 		giftExchange.personLength = 6;
 		giftExchange.persons = persons;
-		persons[0] = new Person(0, "lili", "lee", "lili@example.com");
-		persons[1] = new Person(1, "kevin", "lee", "kevin@example.com");
-		persons[2] = new Person(2, "ray", "lee", "ray@example.com");
-		persons[3] = new Person(3, "alex", "kull", "alex@example.com");
-		persons[4] = new Person(4, "harry", "potter", "harry@example.com");
-		persons[5] = new Person(5, "lizz", "potter", "lizz@example.com");
+		persons[0] = new Person(0, 0, "lili", "lee", "lili@example.com");
+		persons[1] = new Person(1, 0, "kevin", "lee", "kevin@example.com");
+		persons[2] = new Person(2, 0, "ray", "lee", "ray@example.com");
+		persons[3] = new Person(3, 1, "alex", "kull", "alex@example.com");
+		persons[4] = new Person(4, 2, "harry", "potter", "harry@example.com");
+		persons[5] = new Person(5, 2, "lizz", "potter", "lizz@example.com");
 		List<Person> list1 = new ArrayList<>();
 		list1.add(persons[0]);
 		list1.add(persons[1]);
@@ -56,16 +56,19 @@ public class GiftExchangeTest {
 	public void TestSwapPosition(){
 		giftExchange.swapPosition(giftExchange.persons[1], giftExchange.persons[3]);
 		Assert.assertEquals(giftExchange.persons[1].getId(), 1);
+		Assert.assertEquals(giftExchange.persons[1].getFamilyId(), 1);
 		Assert.assertEquals(giftExchange.persons[1].getFirstName(), "alex");
 		Assert.assertEquals(giftExchange.persons[1].getLastName(), "kull");
 		Assert.assertEquals(giftExchange.persons[1].getEmail(), "alex@example.com");
 		
 		Assert.assertEquals(giftExchange.persons[2].getId(), 2);
+		Assert.assertEquals(giftExchange.persons[2].getFamilyId(), 0);
 		Assert.assertEquals(giftExchange.persons[2].getFirstName(), "ray");
 		Assert.assertEquals(giftExchange.persons[2].getLastName(), "lee");
 		Assert.assertEquals(giftExchange.persons[2].getEmail(), "ray@example.com");
 		
 		Assert.assertEquals(giftExchange.persons[3].getId(), 3);
+		Assert.assertEquals(giftExchange.persons[3].getFamilyId(), 0);
 		Assert.assertEquals(giftExchange.persons[3].getFirstName(), "kevin");
 		Assert.assertEquals(giftExchange.persons[3].getLastName(), "lee");
 		Assert.assertEquals(giftExchange.persons[3].getEmail(), "kevin@example.com");
@@ -73,13 +76,11 @@ public class GiftExchangeTest {
 	
 	@Test
 	public void TesTexchangeGifts(){
-		List<Gift> gifts = giftExchange.exchangeGifts();
+		List<Gift> gifts = giftExchange.checkExchangeRule(giftExchange.exchangeGifts());
 		Set<Person> gifterSet = new HashSet<>();
 		Set<Person> recipientSet = new HashSet<>();
 		for(Gift gift:gifts){
-			//System.out.println(gift.getGifter().getFirstName()+" "+gift.getGifter().getLastName()+"->"
-			//		+gift.getRecipient().getFirstName()+" "+gift.getRecipient().getLastName());
-			//Assert.assertNotEquals(gift.getGifter().getLastName(), gift.getRecipient().getLastName());
+			Assert.assertNotEquals(gift.getGifter().getFamilyId(), gift.getRecipient().getFamilyId());
 			Assert.assertTrue(gifterSet.add(gift.getGifter()));
 			Assert.assertTrue(recipientSet.add(gift.getRecipient()));
 		}

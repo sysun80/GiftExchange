@@ -1,9 +1,9 @@
 Pernell Subban <pernell@example.com>
-Haley Irwin <haley@example.com>
-Brendan Gallagher <brendan@example.com>
+Haley Subban <haley@example.com>
+Brendan Subban <brendan@example.com>
 
 Anthony Chan <anthony@example.com>
-Tan Su <tan@example.com>
+Tan Chan <tan@example.com>
 Ally Chan <ally.chan@example.com>
 
 Sam Lee <samlee@example.com>
@@ -17,5 +17,5 @@ Tuan Chen <tchen@example.com>
 Tingting Zhang <tingting@example.com>
 
 Lili Yu <liliyu@example.com>
-Yuan Chen <yuanchen@example.com>
-Hao Chen <haochen@example.com>
+Yuan Yu <yuanyu@example.com>
+Hao Yu <haoyu@example.com>
